@@ -4,7 +4,7 @@ const app = express();
 const passport = require("passport");
 const bcrypt = require("bcrypt");
 const LocalStrategy = require("passport-local").Strategy; // local passport strategy
-const db = require("../models"); // database
+const db = require("./models"); // database
 const flash = require("express-flash");
 const expressSession = require("express-session"); // not sure if we need this
 const cors = require("cors");
@@ -21,7 +21,7 @@ app.use(
   })
 );
 
-app.use(express.static(path.join(__dirname, '../build')))
+app.use(express.static(path.join(__dirname, 'build')))
 //app.use(express.static('../build'));
 
 // Cors
@@ -276,7 +276,7 @@ app.delete("/delete", async (req, res) => {
 });
 
 // Hosting
-const PORT = process.env.port || 5001
+const PORT = process.env.PORT || 5001
 app.listen(PORT, () => {
   console.log(`App is listening on port 5001`);
 });
